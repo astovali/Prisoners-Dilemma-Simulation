@@ -3,6 +3,7 @@ from bots.always_cheat import AlwaysCheatBot
 from bots.copycat import CopyCatBot
 from bots.grudge import GrudgeBot
 from bots.copykitten import CopyKittenBot
+from bots.fool import FoolBot
 from itertools import combinations
 from random import random
 
@@ -20,7 +21,8 @@ bots = {
     'always_cheat': AlwaysCheatBot(),
     'copycat': CopyCatBot(),
     'grudge': GrudgeBot(),
-    'copykitten': CopyKittenBot()
+    'copykitten': CopyKittenBot(),
+    'fool': FoolBot()
 }
 
 #runs a game between two bots
@@ -65,9 +67,10 @@ def run_game(bot_names, rounds, output=False, reset_hardness=False, mistake_chan
     bot_1.reset(reset_hardness)
     bot_2.reset(reset_hardness)
 
-matchups = combinations(bots.keys(), 2)
-for i, j in matchups:
-    run_game([i, j], 10, output=True, mistake_chance=0.0)
+matchups = list(combinations(bots.keys(), 2))
+for i in range(100):
+    for a, b in matchups:
+        run_game([a, b], 100, output=False, mistake_chance=0.05)
 
 print('Final results: ')
 sorted_bots = sorted(bots.keys(), key=lambda bot: -bots[bot].score)
