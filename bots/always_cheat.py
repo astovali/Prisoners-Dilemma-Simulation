@@ -1,6 +1,6 @@
 """This bot always cheats. """
 
-from bot_class import Bot
+from bots.bot_class import Bot
     
 class AlwaysCheatBot(Bot):
     def __init__(self):

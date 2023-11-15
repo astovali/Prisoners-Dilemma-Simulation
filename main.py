@@ -1,5 +1,5 @@
-from always_cooperate import AlwaysCooperateBot
-from always_cheat import AlwaysCheatBot
+from bots.always_cooperate import AlwaysCooperateBot
+from bots.always_cheat import AlwaysCheatBot
 
 #Table of results
 results = {
