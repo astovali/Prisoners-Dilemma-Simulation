@@ -4,6 +4,10 @@ class GrudgeBot(Bot):
     def __init__(self):
         Bot.__init__(self, 'grudge')
         self.angry = False
+    
+    def reset(self, hard=False):
+        Bot.reset(self, hard=hard)
+        self.angry = False
 
     def move(self, other):
         if self.angry:
