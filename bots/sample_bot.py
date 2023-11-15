@@ -4,7 +4,7 @@
 #[bot_1, bot_2]
 #Check the name to see which is which, we will never do mirror matches.
 
-from bot_class import Bot
+from bots.bot_class import Bot
     
 class SampleBot(Bot):
     def __init__(self):

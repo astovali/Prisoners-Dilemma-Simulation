@@ -1,6 +1,6 @@
 """This bot always cooperates. """
 
-from bot_class import Bot
+from bots.bot_class import Bot
     
 class AlwaysCooperateBot(Bot):
     def __init__(self):
