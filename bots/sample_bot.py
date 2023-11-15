@@ -10,7 +10,7 @@ class SampleBot(Bot):
     def __init__(self):
         Bot.__init__(self, 'sample_bot') #replace the name with your bot's name
 
-    def move(self, bot_list):
+    def move(self, other):
         #do some stuff
 
         #format: cooperate is True, cheat is False

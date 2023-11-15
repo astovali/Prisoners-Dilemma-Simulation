@@ -9,8 +9,8 @@ class Bot:
         self.score = 0 #total score
     
     def update(self, move, score):
-        self.cooperate_num += move
-        self.cheat_num += not move
+        self.cooperate_num += move[0]
+        self.cheat_num += not move[0]
         self.raw_moves.append(move)
         self.score += score
 
@@ -18,7 +18,7 @@ class Bot:
         return f'''Name = {self.name},
 Amount of cooperates = {self.cooperate_num}, 
 Amount of cheats = {self.cheat_num}, 
-Raw moves = {self.raw_moves}, 
+Raw moves = {[i[0] for i in self.raw_moves]}, 
 Current score = {self.score}.
 '''
 
