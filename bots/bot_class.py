@@ -19,12 +19,12 @@ class Bot:
 Amount of cooperates = {self.cooperate_num}, 
 Amount of cheats = {self.cheat_num}, 
 Raw moves = {[i[0] for i in self.raw_moves]}, 
-Current score = {self.score}.
-'''
+Overall score = {self.score}.'''
 
-    def reset(self):
-        self.cooperate_num = 0
-        self.cheat_num = 0
+    def reset(self, hard=True):
+        if hard:
+            self.cooperate_num = 0
+            self.cheat_num = 0
+            self.score = 0
         self.raw_moves = []
-        self.score = 0
    
