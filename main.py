@@ -1,6 +1,7 @@
 from bots.always_cooperate import AlwaysCooperateBot
 from bots.always_cheat import AlwaysCheatBot
 from bots.copycat import CopyCatBot
+from bots.grudge import GrudgeBot
 from itertools import combinations
 
 #Table of results
@@ -15,7 +16,8 @@ results = {
 bots = {
     'always_cooperate': AlwaysCooperateBot(),
     'always_cheat': AlwaysCheatBot(),
-    'copycat': CopyCatBot()
+    'copycat': CopyCatBot(),
+    'grudge': GrudgeBot()
 }
 
 #runs a game between two bots
