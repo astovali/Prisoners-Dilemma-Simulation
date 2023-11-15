@@ -4,6 +4,7 @@ from bots.copycat import CopyCatBot
 from bots.grudge import GrudgeBot
 from bots.copykitten import CopyKittenBot
 from bots.fool import FoolBot
+from bots.random import RandomBot
 from itertools import combinations
 from random import random
 
@@ -22,7 +23,8 @@ bots = {
     'copycat': CopyCatBot(),
     'grudge': GrudgeBot(),
     'copykitten': CopyKittenBot(),
-    'fool': FoolBot()
+    'fool': FoolBot(),
+    'random': RandomBot()
 }
 
 #runs a game between two bots
