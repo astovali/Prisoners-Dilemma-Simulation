@@ -9,7 +9,7 @@ class GrudgeBot(Bot):
         Bot.reset(self, hard=hard)
         self.angry = False
 
-    def move(self, other):
+    def move(self):
         if self.angry:
             return False
         if self.raw_moves:

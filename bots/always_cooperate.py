@@ -6,5 +6,5 @@ class AlwaysCooperateBot(Bot):
     def __init__(self):
         Bot.__init__(self, 'always_cooperate')
         
-    def move(self, other):
+    def move(self):
         return True

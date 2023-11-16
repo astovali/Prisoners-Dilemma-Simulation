@@ -6,5 +6,5 @@ class AlwaysCheatBot(Bot):
     def __init__(self):
         Bot.__init__(self, 'always_cheat')
         
-    def move(self, other):
+    def move(self):
         return False

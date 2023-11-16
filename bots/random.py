@@ -5,5 +5,5 @@ class RandomBot(Bot):
     def __init__(self):
         Bot.__init__(self, 'random')
         
-    def move(self, other):
+    def move(self):
         return bool(round(random()))
