@@ -34,8 +34,16 @@ def run_game(bot_1, bot_2, rounds, output=False, reset_hardness=False, mistake_c
     #run the game
     for i in range(rounds):
         #find the moves of the bots
-        bot_1_move = not bot_1.move() if random() < mistake_chance else bot_1.move()
-        bot_2_move = not bot_2.move() if random() < mistake_chance else bot_2.move()
+        try:
+            bot_1_move = not bot_1.move() if random() < mistake_chance else bot_1.move()
+        except Exception as e:
+            print(f'{bot_1.name} failed with exception {e}')
+            bot_1_move = True
+        try:
+            bot_2_move = not bot_2.move() if random() < mistake_chance else bot_2.move()
+        except Exception as e:
+            print(f'{bot_2.name} failed with exception {e}')
+            bot_2_move = True
 
         #find their scores
         bot_1_score, bot_2_score = results[bot_1_move][bot_2_move]
