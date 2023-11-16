@@ -17,22 +17,17 @@ results = {
 }
 
 #Remember to add your bot into the bot dictionary
-bots = {
-    'always_cooperate': AlwaysCooperateBot(),
-    'always_cheat': AlwaysCheatBot(),
-    'copycat': CopyCatBot(),
-    'grudge': GrudgeBot(),
-    'copykitten': CopyKittenBot(),
-    'fool': FoolBot(),
-    'random': RandomBot()
-}
+bots = [
+    AlwaysCooperateBot(),
+    AlwaysCooperateBot(),
+    AlwaysCooperateBot(),
+    CopyCatBot(),
+    AlwaysCheatBot(),
+    GrudgeBot()
+]
 
 #runs a game between two bots
-def run_game(bot_names, rounds, output=False, reset_hardness=False, mistake_chance=0.0):
-    #load up the bots
-    bot_1 = bots[bot_names[0]]
-    bot_2 = bots[bot_names[1]]
-
+def run_game(bot_1, bot_2, rounds, output=False, reset_hardness=False, mistake_chance=0.0):
     bot_1_score_total = 0
     bot_2_score_total = 0
 
@@ -69,12 +64,12 @@ def run_game(bot_names, rounds, output=False, reset_hardness=False, mistake_chan
     bot_1.reset(reset_hardness)
     bot_2.reset(reset_hardness)
 
-matchups = list(combinations(bots.keys(), 2))
+matchups = list(combinations(bots, 2))
 for i in range(100):
     for a, b in matchups:
-        run_game([a, b], 100, output=False, mistake_chance=0.05)
+        run_game(a, b, 100, output=False, mistake_chance=0.0)
 
 print('Final results: ')
-sorted_bots = sorted(bots.keys(), key=lambda bot: -bots[bot].score)
+sorted_bots = sorted(bots, key=lambda bot: -bot.score)
 for i in sorted_bots:
-    print(f'{i} with a score of {bots[i].score}')
+    print(f'{i.name} with a score of {i.score}')
