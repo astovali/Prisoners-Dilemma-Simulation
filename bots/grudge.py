@@ -13,7 +13,7 @@ class GrudgeBot(Bot):
         if self.angry:
             return False
         if self.raw_moves:
-            if self.raw_moves[len(self.raw_moves)-1][1] == False:
+            if self.raw_moves[-1][1] == False:
                 self.angry = True
                 return False
         return True

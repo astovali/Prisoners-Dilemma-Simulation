@@ -7,8 +7,8 @@ class FoolBot(Bot):
     def move(self):
         if self.raw_moves:
             if len(self.raw_moves) >= 2:
-                if self.raw_moves[len(self.raw_moves)-1][1]:
-                    return self.raw_moves[len(self.raw_moves)-1][0]
+                if self.raw_moves[-1][1]:
+                    return self.raw_moves[-1][0]
                 else:
-                    return not self.raw_moves[len(self.raw_moves)-1][0]
+                    return not self.raw_moves[-1][0]
         return True

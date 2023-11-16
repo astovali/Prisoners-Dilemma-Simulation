@@ -20,7 +20,7 @@ class ConnorBot(Bot):
         if not self.reached_last_round:
             self.game_length = int(self.game_length*0.9)
             self.reached_last_round = True
-        self.randomness = (self.randomness*5 + self.randomness_this_round)/6
+        self.randomness = (self.randomness*9 + self.randomness_this_round)/10
         self.angry = False
         self.mistakes_this_round = 0
         self.randomness_this_round = 0
@@ -51,17 +51,17 @@ class ConnorBot(Bot):
         if randomness >= self.forgive_thresholds[0] and randomness <= self.forgive_thresholds[1]:
             #play as copykitten
             if len(self.raw_moves) >= 2:
-                return self.store(self.raw_moves[len(self.raw_moves)-1][1] or self.raw_moves[len(self.raw_moves)-2][1])
+                return self.store(self.raw_moves[-1][1] or self.raw_moves[-2][1])
         elif randomness >= self.grudge_threshold:
             #play as always grudge
             if self.angry:
                 return self.store(False)
             if len(self.raw_moves) >= 1:
-                if self.raw_moves[len(self.raw_moves)-1][1] == False:
+                if self.raw_moves[-1][1] == False:
                     self.angry = True
                     return self.store(False)
         else:
             #play as copycat
             if len(self.raw_moves) >= 1:
-                return self.store(self.raw_moves[len(self.raw_moves)-1][1])
+                return self.store(self.raw_moves[-1][1])
         return self.store(True)
