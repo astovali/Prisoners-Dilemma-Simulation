@@ -5,6 +5,7 @@ from bots.grudge import GrudgeBot
 from bots.copykitten import CopyKittenBot
 from bots.fool import FoolBot
 from bots.random import RandomBot
+from bots.connor import ConnorBot
 from itertools import combinations
 from random import random
 
@@ -19,11 +20,19 @@ results = {
 #Remember to add your bot into the bot dictionary
 bots = [
     AlwaysCooperateBot(),
-    AlwaysCooperateBot(),
+    CopyCatBot(),
+    AlwaysCheatBot(),
+    GrudgeBot(),
+    CopyKittenBot(),
+    ConnorBot(),
     AlwaysCooperateBot(),
     CopyCatBot(),
     AlwaysCheatBot(),
-    GrudgeBot()
+    GrudgeBot(),
+    CopyKittenBot(),
+    ConnorBot(),
+    FoolBot(),
+    FoolBot()
 ]
 
 #runs a game between two bots
@@ -73,11 +82,16 @@ def run_game(bot_1, bot_2, rounds, output=False, reset_hardness=False, mistake_c
     bot_2.reset(reset_hardness)
 
 matchups = list(combinations(bots, 2))
-for i in range(100):
+games = 100
+for i in range(games):
+    mistake_chance = (i/games) * 0.2
     for a, b in matchups:
-        run_game(a, b, 100, output=False, mistake_chance=0.0)
+        run_game(a, b, 100, output=False, mistake_chance=mistake_chance)
 
 print('Final results: ')
 sorted_bots = sorted(bots, key=lambda bot: -bot.score)
+said = []
 for i in sorted_bots:
-    print(f'{i.name} with a score of {i.score}')
+    if i.name not in said:
+        print(f'{i.name} with a score of {i.score}')
+        said.append(i.name)

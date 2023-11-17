@@ -7,5 +7,5 @@ class CopyKittenBot(Bot):
     def move(self):
         if self.raw_moves:
             if len(self.raw_moves) >= 2:
-                return self.raw_moves[len(self.raw_moves)-1][1] or self.raw_moves[len(self.raw_moves)-2][1]
+                return self.raw_moves[-1][1] or self.raw_moves[-2][1]
         return True
